@@ -1,0 +1,19 @@
+version: '2.1'
+services:
+       
+ iotagent-luiz:
+   image: iot-luiz
+   ports:
+     - 8540:8540
+   restart: always
+   environment:
+     DOJOT_SERVICE_MANAGEMENT: 'internal'
+     SERVER_PORT: 3124
+   logging:
+     driver: json-file
+     options:
+       max-size: 100m
+networks:
+  default:
+    external:
+      name: dojot_default
